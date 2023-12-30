@@ -56,14 +56,14 @@ public class AdminDao {
         return namedParameterJdbcTemplate.query(sql, userRowMapper);
     }
 
-    public void changeUserStatus(int userId, boolean status) {
+    public boolean changeUserStatus(int userId, boolean status) {
         String sql = "UPDATE User SET is_active = :isActive WHERE user_id = :userId";
 
         MapSqlParameterSource parameters = new MapSqlParameterSource();
         parameters.addValue("isActive", status);
         parameters.addValue("userId", userId);
 
-        namedParameterJdbcTemplate.update(sql, parameters);
+        return namedParameterJdbcTemplate.update(sql, parameters) > 0;
     }
 
     public List<Quiz> getAllQuiz() {

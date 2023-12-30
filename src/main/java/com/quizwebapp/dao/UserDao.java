@@ -61,4 +61,16 @@ public class UserDao {
 
         return !users.isEmpty() ? users.get(0) : null;
     }
+
+    public boolean deleteUserById(int userId) {
+        String sql = "DELETE FROM User WHERE user_id = :userId";
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("userId", userId);
+
+        int rowsAffected = namedParameterJdbcTemplate.update(sql, parameterSource);
+
+        // 如果受影响的行数大于0，表示删除成功
+        return rowsAffected > 0;
+    }
+
 }
