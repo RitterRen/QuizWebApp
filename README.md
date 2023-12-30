@@ -1,2 +1,2 @@
 # QuizWebApp
-A web application that can get random question from database.
+A Spring MVC web application that can get random question from database.
