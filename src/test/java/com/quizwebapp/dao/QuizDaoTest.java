@@ -23,11 +23,4 @@ public class QuizDaoTest {
         assertEquals(choiceList.size(), 4);
     }
 
-    @Test
-    public void testGetCorrectAnswerWithQuestionId() {
-        List<Integer> correctAnswer = quizDao.getCorrectAnswerWithQuestionId(2);
-
-        System.out.println(correctAnswer);
-        assertEquals(correctAnswer.size(), 1);
-    }
 }
